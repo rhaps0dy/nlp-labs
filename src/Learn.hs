@@ -8,7 +8,7 @@ import qualified Data.Text as T
 countWords :: [T.Text] -> M.Map T.Text (M.Map T.Text Int)
 countWords [] = M.empty
 countWords (word:t:rest) =
-    let w = T.toLower word
+    let w = word
         wcount = countWords rest
         inmap = fromMaybe M.empty (M.lookup w wcount)
         curcount = fromMaybe 0 (M.lookup t inmap)
